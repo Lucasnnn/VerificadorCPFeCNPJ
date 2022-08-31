@@ -1,10 +1,9 @@
 // Funcoes Principais |||
 
 function VerificarCpfCnpj(valor) {
+ 
   valida = CpfouCnpj(valor);
-
   valor = valor.toString();
-
   valor = valor.replace(/[^0-9]/g, "");
 
   if (valida === "CPF") {
@@ -45,8 +44,8 @@ function FomatarCpfCnpj(valor) {
 // Funcoes Secundarias |||
 
 function CpfouCnpj(valor) {
-  valor = valor.toString();
 
+  valor = valor.toString();
   valor = valor.replace(/[^0-9]/g, "");
 
   if (valor.length === 11) {
@@ -83,14 +82,26 @@ function CalcularDigitos(digitos, posicoes = 10, soma_digitos = 0) {
 }
 
 function ValidarCpf(valor) {
+  
+   if (valor == "00000000000" ||
+    valor == "11111111111" ||
+    valor == "22222222222" ||
+    valor == "33333333333" ||
+    valor == "44444444444" ||
+    valor == "55555555555" ||
+    valor == "66666666666" ||
+    valor == "77777777777" ||
+    valor == "88888888888" ||
+    valor == "99999999999") {
+    return false;
+  }
+  
   valor = valor.toString();
-
   valor = valor.replace(/[^0-9]/g, "");
 
   digitos = valor.substr(0, 9);
 
   novo_cpf = CalcularDigitos(digitos);
-
   novo_cpf = CalcularDigitos(novo_cpf, 11);
 
   if (novo_cpf === valor) {
@@ -123,5 +134,5 @@ function ValidarCnpj(valor) {
 
 // Testador |||
 
-const x = VerificarCpfCnpj("CPF OU CPF PRA TESTE");
+const x = VerificarCpfCnpj('026.012.091-00');
 console.log(x);
