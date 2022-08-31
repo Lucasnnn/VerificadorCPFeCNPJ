@@ -134,5 +134,5 @@ function ValidarCnpj(valor) {
 
 // Testador |||
 
-const x = VerificarCpfCnpj('026.012.091-00');
+const x = VerificarCpfCnpj('CPF ou CNPJ para teste');
 console.log(x);
